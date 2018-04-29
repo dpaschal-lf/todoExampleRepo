@@ -1,0 +1,24 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	height: 100vh;
+}
+
+#todoTasks, #userMetadata{
+	float: left;
+	border: 1px solid black;
+	height: 100%;
+}
+#todoTasks{	
+	width: 50%;
+}
+#userMetadata{
+	width: 50%;
+}
+
+#userSection{
+	height: 20%;
+	background-color: lightyellow;
+}
