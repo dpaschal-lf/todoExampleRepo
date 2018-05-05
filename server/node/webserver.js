@@ -18,6 +18,12 @@ webserver.get( '/todoitems', function(request, response){
 	}
 	db.connect(function(){
 		//this gets run when connection to db is finalized
+		let todoID;
+		if(request.query && request.query.itemID){
+			todoID = request.query.itemID
+		}
+		console.log(request.query);
+
 		db.query('SELECT * FROM tasks', function(err, data, fields){
 			//this gets run when query comes back with data
 			if(!err){

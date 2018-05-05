@@ -70,6 +70,9 @@ function getTaskDataAndRender(){
 	$.ajax({
 		url: 'todoitems',
 		dataType: 'json',
+		data: {
+			itemID: 3
+		},
 		method: 'get',
 		success: function(response){
 			if(response.tasks.length>0){
