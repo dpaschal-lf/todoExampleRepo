@@ -3,6 +3,11 @@ const webserver = express();
 
 webserver.use( express.static(__dirname + '/' + 'html' ));
 
+const mysql = require('mysql');
+const mysql_creds = require('./mysql_credentials.js');
+
+const db = mysql.createConnection(mysql_creds);
+
 
 webserver.get( '/todoitems', function(request, response){
 
