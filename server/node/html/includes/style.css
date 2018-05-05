@@ -1,0 +1,63 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	height: 100vh;
+}
+
+#todoTasks, #userMetadata{
+	float: left;
+	border: 1px solid black;
+	height: 100%;
+}
+#todoTasks{	
+	width: 50%;
+}
+#userMetadata{
+	width: 50%;
+}
+
+#userSection{
+	height: 20%;
+	background-color: lightyellow;
+}
+
+.todoTask{
+	height: 10%;
+	position: relative;
+}
+.todoTask::after{
+	content: '';
+	border-bottom: 1px solid black;
+	width: 80%;
+	left: 10%;
+	position: absolute;
+	bottom: 0;
+	display: inline-block;
+}
+.todoTask > .title{
+	float: left;
+	width: 50%;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.todoTask > .date{
+	float: right;
+	width: 50%;
+}
+.todoTask > .description{
+	width: 100%;
+}
+.todoTask > .controls > *{
+	float: right;
+}
+
+
+
+
+
+
+
+
+
