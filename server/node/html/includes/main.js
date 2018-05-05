@@ -71,7 +71,7 @@ function getTaskDataAndRender(){
 		url: 'todoitems',
 		dataType: 'json',
 		data: {
-			itemID: 3
+			//itemID: 3
 		},
 		method: 'post',
 		success: function(response){
