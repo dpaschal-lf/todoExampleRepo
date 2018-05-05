@@ -10,31 +10,29 @@ const db = mysql.createConnection(mysql_creds);
 
 
 webserver.get( '/todoitems', function(request, response){
-
-	response.send(`{
-	"tasks": [{
-		"title": "buy eggs",
-		"description": "Buy a dozen eggs from the store",
-		"dueDate": "5-1-2018 5:00pm",
-		"completed": false
-	}, {
-		"title": "rotate tires",
-		"description": "move the tires around your car, yo",
-		"dueDate": "6-1-2018 5:00pm",
-		"completed": false
-	}, {
-		"title": "change oil",
-		"description": "change the oil on the pinto",
-		"dueDate": "6-3-2018 5:00pm",
-		"completed": false
-	}],
-	"user": {
-		"id": 4,
-		"firstname": "Dan",
-		"lastname": "Paschal",
-		"avatar": "images/bunny.png"
+	//this gets run when request comes in
+	const output = {
+		success: false,
+		tasks: [],
+		errors: []
 	}
-}`);
+	db.connect(function(){
+		//this gets run when connection to db is finalized
+		db.query('SELECT * FROM tasks', function(err, data, fields){
+			//this gets run when query comes back with data
+			if(!err){
+				output.success=true;
+				output.tasks = data;
+				//this gets run when no error occured in the db request
+				const json_data = JSON.stringify(output);
+				response.send( json_data );
+			} else{
+				//mysql had an error
+			}
+		});
+
+	})
+	
 
 })
 
