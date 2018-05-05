@@ -73,7 +73,7 @@ function getTaskDataAndRender(){
 		data: {
 			itemID: 3
 		},
-		method: 'get',
+		method: 'post',
 		success: function(response){
 			if(response.tasks.length>0){
 				renderAllTasks(response.tasks);
